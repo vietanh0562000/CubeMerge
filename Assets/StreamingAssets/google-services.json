@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "778722285921",
+    "project_id": "cube-2048-3d-merge-game",
+    "storage_bucket": "cube-2048-3d-merge-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778722285921:android:1793d2208bb2067a9d4d20",
+        "android_client_info": {
+          "package_name": "com.cmgame.cube20483dmegergame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778722285921-ng4ci761ts7u1b6p5qcq5rldf9k1915c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4ddD3uUhJTosxxcCVEUIY1TcMTO_CORA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778722285921-ng4ci761ts7u1b6p5qcq5rldf9k1915c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

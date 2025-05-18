@@ -1,0 +1,2 @@
+[2023-3-24 09:59:19] layer "Arrow 27 - www.Shapes4FREE.com1": Unsupported extension: com
+[2023-3-24 09:59:19] layer "Arrow 27 - www.Shapes4FREE.com1": Invalid quality: 10
