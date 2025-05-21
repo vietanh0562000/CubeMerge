@@ -14,20 +14,10 @@ public class MenuManager : MonoBehaviour
      AudioSource _effS;
      public int _played = 0;
      public GameObject[] _sellectedMode;
+     public GameObject[] _selectedButtons;
      int _sellected = -1;
      int _countArr;
-
-     public int _watchedSphereAds = 0;
-     public int _watchedTriangleAds = 0;
-     public int _watchedMixAds = 0;
-     public Button _sphere;
-     public Button _triangle;
-     public Button _mix;
-     public TextMeshProUGUI _adstext;
-     public Button _sphereMode;
-     public Button _triangleMode;
-     public Button _mixMode;
-
+     
      public TextMeshProUGUI Failed;
 
      private void Awake()
@@ -41,27 +31,6 @@ public class MenuManager : MonoBehaviour
      {
           if (SceneManager.GetActiveScene().buildIndex == 1)
           {
-
-               _watchedSphereAds = PlayerPrefs.GetInt("sphere");
-               _watchedTriangleAds = PlayerPrefs.GetInt("triangle");
-               _watchedMixAds = PlayerPrefs.GetInt("mix");
-               if (_watchedSphereAds == 1)
-               {
-                    _sphere.gameObject.SetActive(false);
-                    _sphereMode.gameObject.SetActive(true);
-
-               }
-               if (_watchedTriangleAds == 1)
-               {
-                    _triangle.gameObject.SetActive(false);
-                    _triangleMode.gameObject.SetActive(true);
-               }
-               if (_watchedMixAds == 3)
-               {
-                    _mix.gameObject.SetActive(false);
-                    _mixMode.gameObject.SetActive(true);
-               }
-               _adstext.text = _watchedMixAds + "/3";
                _effS.clip = _clip;
 
                if (_sellectedMode.Length != 0)
@@ -70,6 +39,16 @@ public class MenuManager : MonoBehaviour
                          if (_sellected == i) _sellectedMode[i].SetActive(true);
                          else _sellectedMode[i].SetActive(false);
                     }
+
+               if (_selectedButtons.Length != 0)
+               {
+                    for (int i = 0; i < _selectedButtons.Length; i++)
+                    {
+                         if (_sellected == i) _selectedButtons[i].SetActive(true);
+                         else _selectedButtons[i].SetActive(false);
+                    }
+
+               }
 
           }
      }
