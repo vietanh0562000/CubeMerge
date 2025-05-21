@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class AdsManager : MonoBehaviour
@@ -8,27 +9,31 @@ public class AdsManager : MonoBehaviour
      public Canvas _adsRocket;
      public GameObject RocketReward;
      public ParticleSystem _explode;
-
-
-
-
+     public TextMeshProUGUI _powerUpQuantityTMP;
+     
      Vector2 _posTemp;
      private void Awake()
      {
           instance = this;
+          var powerUpQuantity = PlayerPrefs.GetInt("RocketPowerUp");
+          _powerUpQuantityTMP.text = powerUpQuantity.ToString();
      }
 
      public void SpawnRocketReward()
      {
-
-          // AdmobManager.instance.ShowAdReward(() =>
-          // {
-              UIManager.instance.FlyingAdsOnComplete(); 
-              RocketReward.transform.gameObject.SetActive(true);
-          // }, () =>
-          // {
-          //      MenuManager.instance.Failed.gameObject.SetActive(true);
-          // });
+          var powerUpQuantity = PlayerPrefs.GetInt("RocketPowerUp");
+          if (powerUpQuantity > 0)
+          {
+               UIManager.instance.FlyingAdsOnComplete(); 
+               RocketReward.transform.gameObject.SetActive(true);
+               powerUpQuantity--;
+               PlayerPrefs.SetInt("RocketPowerUp", powerUpQuantity);
+               _powerUpQuantityTMP.text = powerUpQuantity.ToString();
+          }
+          else
+          {
+               UIManager.instance.OpenShop();
+          }
      }
 
 

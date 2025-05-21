@@ -29,6 +29,9 @@ public class UIManager : MonoBehaviour
      public GameObject flyingAds;
 
      public Image _spiningSpining;
+
+     public GameObject _shopUI;
+     
      Quaternion _buttonService;
      private void Awake()
      {
@@ -132,6 +135,16 @@ public class UIManager : MonoBehaviour
                Time.timeScale = 0;
           }
           else Time.timeScale = 1;
+     }
+
+     public void OpenShop()
+     {
+          _shopUI.SetActive(true);
+     }
+
+     public void CloseShop()
+     {
+          _shopUI.SetActive(false);
      }
 
 
