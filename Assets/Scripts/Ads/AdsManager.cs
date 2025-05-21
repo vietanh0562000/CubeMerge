@@ -23,8 +23,8 @@ public class AdsManager : MonoBehaviour
 
           // AdmobManager.instance.ShowAdReward(() =>
           // {
-          //      UIManager.instance.FlyingAdsOnComplete();
-          //      RocketReward.transform.gameObject.SetActive(true);
+              UIManager.instance.FlyingAdsOnComplete(); 
+              RocketReward.transform.gameObject.SetActive(true);
           // }, () =>
           // {
           //      MenuManager.instance.Failed.gameObject.SetActive(true);

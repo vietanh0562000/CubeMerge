@@ -271,13 +271,6 @@ public class GameManager : MonoBehaviour
           }
      }
 
-      public void UsePowerUpClearAll()
-     {
-          StartCoroutine(EXPLOSION());
-
-          
-     }
-
      public void SaveGameMix()
      {
           SaveNewBox();
@@ -358,27 +351,6 @@ public class GameManager : MonoBehaviour
           PlayerPrefs.DeleteKey("listCount"
           + _gameMode);
 
-     }
-     
-     public IEnumerator EXPLOSION()
-     {
-          int i = 0;
-          float x = -2.5f;
-          float y = -2f;
-          while (i < 2)
-          {
-               yield return new WaitForSeconds(0.1f);
-               Instantiate(_explode, _posTemp + new Vector2(x, y), Quaternion.identity);
-               SoundManager.instance.PlaySound(5);
-               i++;
-               x += 5f;
-
-          }
-          foreach (GameObject box in GameManager.instance._droppedList)
-          {
-               UIManager.instance.addScore(box.GetComponent<NumberGen>().number);
-               Destroy(box);
-          }
      }
 }
 
