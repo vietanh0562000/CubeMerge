@@ -26,18 +26,17 @@ public class UIManager : MonoBehaviour
 
      bool _loserArlert = false;
 
-     public GameObject flyingAds;
-
      public Image _spiningSpining;
 
      public GameObject _shopUI;
+     
+     public TextMeshProUGUI _powerUpQuantityTMP;
      
      Quaternion _buttonService;
      private void Awake()
      {
           instance = this;
           _buttonService = _spiningSpining.transform.GetChild(0).rotation;
-          StartCoroutine(WakeUpAds());
 
      }
      private void Update()
@@ -45,22 +44,7 @@ public class UIManager : MonoBehaviour
           _spiningSpining.transform.Rotate(new Vector3(0, 0, 5) * 12 * Time.deltaTime);
           _spiningSpining.transform.GetChild(0).rotation = _buttonService;
      }
-     public IEnumerator WakeUpAds()
-     {
-          yield return new WaitForSeconds(60f);
-          
-          flyingAds.SetActive(true);
-     }
-     public void FlyingAdsOnComplete()
-     {
-          StartCoroutine(FlyingAds());
-     }
-     public IEnumerator FlyingAds()
-     {
-          flyingAds.SetActive(false);
-          yield return new WaitForSeconds(30f);
-          flyingAds.SetActive(true);
-     }
+   
      public void addScore(int total)
      {
           txtScore.transform.DOScale(1.6f, .3f).OnComplete(() =>
@@ -147,5 +131,10 @@ public class UIManager : MonoBehaviour
           _shopUI.SetActive(false);
      }
 
-
+     public void UpdatePowerUpText()
+     {
+          var powerUpQuantity = PlayerPrefs.GetInt("RocketPowerUp");
+          _powerUpQuantityTMP.text = powerUpQuantity.ToString();
+     }
+     
 }
