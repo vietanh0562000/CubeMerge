@@ -20,8 +20,6 @@ public class PurchasingManager : MonoBehaviour
             IAPManager.OnPurchaseSuccess = () =>
             {
                PlayerPrefs.SetInt("RocketPowerUp", quantity + 5);
-               UIManager.instance.UpdatePowerUpText();
-               UIManager.instance.CloseShop();
             };
             IAPManager.Instance.BuyProductID(IAPKey.PACK2);
             break;
@@ -29,8 +27,6 @@ public class PurchasingManager : MonoBehaviour
             IAPManager.OnPurchaseSuccess = () =>
             {
                PlayerPrefs.SetInt("RocketPowerUp", quantity + 10);
-               UIManager.instance.UpdatePowerUpText();
-               UIManager.instance.CloseShop();
             };
             IAPManager.Instance.BuyProductID(IAPKey.PACK3);
             break;
@@ -38,9 +34,6 @@ public class PurchasingManager : MonoBehaviour
             IAPManager.OnPurchaseSuccess = () =>
             {
                PlayerPrefs.SetInt("RocketPowerUp", quantity + 20);
-               UIManager.instance.UpdatePowerUpText();
-               UIManager.instance.CloseShop();
-               
             };
             IAPManager.Instance.BuyProductID(IAPKey.PACK4);
             break;
@@ -48,8 +41,6 @@ public class PurchasingManager : MonoBehaviour
             IAPManager.OnPurchaseSuccess = () =>
             {
                PlayerPrefs.SetInt("RocketPowerUp", quantity + 30);
-               UIManager.instance.UpdatePowerUpText();
-               UIManager.instance.CloseShop();
             };
             IAPManager.Instance.BuyProductID(IAPKey.PACK5);
             break;
@@ -57,12 +48,13 @@ public class PurchasingManager : MonoBehaviour
             IAPManager.OnPurchaseSuccess = () =>
             {
                PlayerPrefs.SetInt("RocketPowerUp", quantity + 40);
-               UIManager.instance.UpdatePowerUpText();
-               UIManager.instance.CloseShop();
             };
             IAPManager.Instance.BuyProductID(IAPKey.PACK6);
             break;
       }
+      
+      UIManager.instance.UpdatePowerUpText();
+      UIManager.instance.CloseShop();
    }
 
    public void Sub(int i)
